@@ -2,7 +2,8 @@ import express from "express";
 import chatboxController from "../controllers/chatboxController";
 let router=express.Router();
 let initWebRoutes=(app)=>{
-    router.get("/",(req,res)=>{
+    router.get("/hung2",(req,res)=>{
+        console.log("hung")
         return res.send("Hello word");
     });
     //router.get("/",chatboxController.test);
