@@ -1,14 +1,18 @@
 import express from "express";
-import chatboxController from "../controllers/chatboxController";
-let router=express.Router();
-let initWebRoutes=(app)=>{
-    router.get("/hung2",(req,res)=>{
-        console.log("hung")
-        return res.send("Hello word");
-    });
-    //router.get("/",chatboxController.test);
-    router.get("/webhook",chatboxController.getWebhook);
-    router.get("/webhook",chatboxController.postWebhook);
-    return app.use("/",router);
+import homepageController from "../controllers/homepageController";
+
+let router = express.Router();
+
+//init all web routes
+let initWebRoutes = (app) => {
+    router.get("/", homepageController.getHomepage);
+    router.get("/webhook", homepageController.getWebhook);
+    router.post("/webhook", homepageController.postWebhook);
+    router.post('/setup', homepageController.handleSetupInfor); //set up the persistent menu & get started button
+    router.get('/get-survey', homepageController.handleGetSurveyPage); //webview
+    router.post('/post-survey', homepageController.handlePostSurvey);
+    // router.post('/write-data', homepageController.writeDataToGoogleSheet);
+    return app.use("/", router);
 };
-module.exports=initWebRoutes;
+
+module.exports = initWebRoutes;

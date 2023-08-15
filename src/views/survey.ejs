@@ -1,0 +1,85 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        let facebookAppId = "<%= facebookAppId %>"
+    </script>
+    <script src="https://connect.facebook.net/en_US/messenger.Extensions.js"></script>
+    <!-- <script src="/js/survey.js"></script> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style>
+    .title {
+        margin-top: 15px;
+        margin-bottom: 10px;
+        font-size: 24px;
+    }
+
+    .note1 {
+        font-size: 12px;
+        margin-bottom: 15px;
+        font-style: italic;
+    }
+
+    .subscribe {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .btn-send {
+        width: 85px;
+        margin-bottom: 15px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <form id="ContactForm">
+            <div class="col-12 form-group">
+                <input class="form-control" hidden id="psid" />
+
+            </div>
+            <div class="contact__fields">
+                <div class="field">
+                    <input class="field__input" autocomplete="id" type="text" id="ContactForm-id" name="contact[id]"
+                        placeholder="ID">
+                </div>
+                <br>
+                <div class="field">
+                    <input class="field__input" autocomplete="name" type="text" id="ContactForm-code"
+                        name="contact[code]" placeholder="Code">
+                    <label class="field__label" for="ContactForm-code">Mã gioi thieu</label>
+                </div>
+                <br>
+                <div class="contact__button">
+                    <button type="submit" class="button" 
+                    >
+                    Ðang ký
+                  </button>
+                </div>
+        </form>
+    </div>
+    <script>
+        document.getElementById('ContactForm').addEventListener('submit', function (event) {
+          event.preventDefault(); // Prevent the default form submission behavior
+            console.log("hung1")
+          // Your form processing logic here
+    
+          // Close the webview after form processing
+          MessengerExtensions.requestCloseBrowser(function success() {
+            // Webview closed successfully
+            console.log("hung2")
+          }, function error(err) {
+            // An error occurred while trying to close the webview
+          });
+        });
+      </script>
+</body>
+
+</html>
