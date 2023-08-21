@@ -71,6 +71,13 @@ let handleGetStartedButton = () => {
                             "payload": "RESERVE_TABLE",
                         },
                         {
+                            "type": "web_url",
+                            "url": "https://bot.hegg.io/get-survey",
+                            "webview_height_ratio": "tall",
+                            "title": "Đặt vé",
+                            "messenger_extensions": true //false: open the webview in new tab
+                        },
+                        {
                             "type": "postback",
                             "title": "HƯỚNG DẪN SỬ DỤNG BOT",
                             "payload": "GUIDE_TO_USE",

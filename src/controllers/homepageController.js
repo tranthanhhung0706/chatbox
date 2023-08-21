@@ -265,7 +265,7 @@ let handleSetupInfor = async (req, res) => {
             }
         ],
         "whitelisted_domains": [
-            "https://e66ed1.myshopify.com/products/", //link to your Heroku app
+            "https://bot.hegg.io/", //link to your Heroku app
         ]
     };
     return new Promise((resolve, reject) => {
